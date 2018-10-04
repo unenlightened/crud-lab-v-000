@@ -10,8 +10,8 @@ class Restaurant extends Component {
     return (
         <li>
           {restaurant.text}
-          <button> X </button>
-          <ReviewsContainer restaurant={restaurant}/>
+          {/* <button> X </button>
+          <ReviewsContainer restaurant={restaurant}/> */}
         </li>
     );
   }
