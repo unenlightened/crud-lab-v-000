@@ -8,13 +8,11 @@ class Restaurant extends Component {
     const { restaurant } = this.props;
 
     return (
-      <div>
         <li>
           {restaurant.text}
           <button> X </button>
           <ReviewsContainer restaurant={restaurant}/>
         </li>
-      </div>
     );
   }
 };
