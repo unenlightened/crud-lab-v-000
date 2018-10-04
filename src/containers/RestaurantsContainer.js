@@ -9,7 +9,7 @@ debugger
     return (
       <div>
         <RestaurantInput addRestaurant={this.props.addRestaurant} />
-        <Restaurants restaurants={this.props.restaurants} />
+        <Restaurants restaurants={this.props.restaurants} deleteRestaurant={this.props.deleteRestaurant} />
       </div>
     )
   }
@@ -18,7 +18,8 @@ debugger
 const mapStateToProps = ({ restaurants }) => ({ restaurants })
 
 const mapDispatchToProps = dispatch => ({
-  addRestaurant: restaurantText => dispatch({ type: 'ADD_RESTAURANT', restaurantText })
+  addRestaurant: restaurantText => dispatch({ type: 'ADD_RESTAURANT', restaurantText }),
+  deleteRestaurant: id => dispatch({ type: 'DELETE_RESTAURANT', id })
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(RestaurantsContainer)
