@@ -7,6 +7,7 @@ export default function manageRestaurants(state = {
   switch (action.type) {
 
     case 'ADD_RESTAURANT':
+      console.log('adding restuaurant: ', action.restaurantText)
       const restaurant = {
         id: cuid(),
         text: action.restaurantText
