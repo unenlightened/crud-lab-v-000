@@ -5,20 +5,31 @@ export default function manageRestaurants(state = {
   restaurants: [],
   reviews: []
 }, action) {
-  switch (action.type) {
+  let restaurant, review
 
+  switch (action.type) {
     case 'ADD_RESTAURANT':
-      const restaurant = {
+      restaurant = {
         id: cuid(),
         text: action.restaurantText
       }
       return { ...state, restaurants: state.restaurants.concat(restaurant) }
+    
+    case 'UPDATE_RESTAURANT':
+      restaurant = {
+        id: action.restaurant.id,
+        text: action.restaurant.text
+      }
+      const restaurants = state.restaurants.map(r => 
+        r.id === restaurant.id ? restaurant : r
+      )
+      return { ...state, restaurants: restaurants }
 
     case 'DELETE_RESTAURANT':
       return { ...state, restaurants: state.restaurants.filter(restaurant => restaurant.id !== action.id) }
 
     case 'ADD_REVIEW':
-      const review = {
+      review = {
         id: cuid(),
         restaurantId: action.review.restaurantId,
         text: action.review.text
