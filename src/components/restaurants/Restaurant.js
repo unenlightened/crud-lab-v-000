@@ -37,7 +37,7 @@ class Restaurant extends Component {
     const showRestaurant = <div>{restaurant.text} <button onClick={this.toggleHidden}>Edit</button> <button onClick={() => this.props.deleteRestaurant(restaurant.id)}> X </button></div>
 
     const editModal = <div><input value={this.state.text} onChange={this.handleChange} /> <button onClick={this.handleUpdate}>Edit</button></div>
-    
+
     return (
         <li>
           {this.state.isHidden ? showRestaurant : editModal}
